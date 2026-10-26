@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# TruePix data
+reports/*
+!reports/.gitkeep
+sample_images/*
+!sample_images/.gitkeep
+*.tmp
+
+# Secrets / environment
+.env
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local scratch / test artifacts
+.pytest_cache/
+.probe_tmp/
+scratch_*.png
+scratch_*.jpg
+scratch_*.jpeg
+
+# Office lock files
+~$*.docx
+
+# Generated brag video output
+brag-output*/
