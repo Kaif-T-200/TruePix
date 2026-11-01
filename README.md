@@ -1,5 +1,9 @@
 # TruePix
 
+<p align="center">
+  <img src="assets/banner.svg" alt="TruePix — AI Image Authenticity & Forensic Analysis" width="100%">
+</p>
+
 **AI Image Authenticity & Forensic Analysis** — *See the truth behind every pixel.*
 
 A lightweight, CPU-only digital-forensics tool that combines content provenance,
@@ -168,8 +172,12 @@ Two policy rules these tables enforce:
 python -m pytest tests/
 ```
 
-The suite (115 tests) includes synthetic fixtures for every detector: JPEG
-files saved at known qualities to verify the compression-history estimate, a
-mosaicked-and-demosaiced image that must trip the CFA detector while a
-direct-RGB control does not, and risk-engine assertions that no single weak
-signal can move the verdict past `POSSIBLE_AI_GENERATION`.
+The suite (33 tests) covers upload validation & hashing, the image-info
+module, batch processing, the JPEG double-compression sweep (files saved at
+known qualities must produce a dip at the original quality), the CFA detector
+(a mosaicked image trips it while a direct-RGB control does not), and
+risk-engine assertions that no single weak signal can move the verdict past
+`POSSIBLE_AI_GENERATION`, that conflicting evidence yields `INCONCLUSIVE`,
+and that unverified provenance can never be definitive. An app-level smoke
+test runs the real Streamlit UI end-to-end (upload → analysis → History
+click → navigation) to catch session-state regressions.
